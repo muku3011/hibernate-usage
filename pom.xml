@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>LearnByExample</artifactId>
+        <groupId>com.learn.java</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>SampleProjects</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>EmailSms</module>
+        <module>PdfWriter</module>
+        <module>TwitterApi</module>
+        <module>Bluetooth</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.source.compiler.version>1.8</java.source.compiler.version>
+        <java.target.compiler.version>${java.source.compiler.version}</java.target.compiler.version>
+        <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+        <junit.jupiter.version>5.4.2</junit.jupiter.version>
+
+        <mail.version>1.4.5</mail.version>
+        <smtp.version>1.5.2</smtp.version>
+        <javaee.version>6.0</javaee.version>
+        <pdfbox.version>[2.0.15,)</pdfbox.version>
+        <unrest.version>1.4.9</unrest.version>
+        <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
+        <bluecove.version>2.1.1</bluecove.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--Junit dependency, only required for test that's why scope is test-->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!--Java X mailing API-->
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>${mail.version}</version>
+            </dependency>
+
+            <!--Mailing protocol SMTP protocol-->
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>smtp</artifactId>
+                <version>${smtp.version}</version>
+            </dependency>
+
+            <!--PDF handling API-->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>pdfbox</artifactId>
+                <version>${pdfbox.version}</version>
+            </dependency>
+
+            <!--Lightweight HTTP libraries-->
+            <dependency>
+                <groupId>com.mashape.unirest</groupId>
+                <artifactId>unirest-java</artifactId>
+                <version>${unrest.version}</version>
+            </dependency>
+
+            <!--javax API-->
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${javaee.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!--Twitter API for Java-->
+            <dependency>
+                <groupId>org.twitter4j</groupId>
+                <artifactId>twitter4j-stream</artifactId>
+                <version>${twitter4j-stream.version}</version>
+            </dependency>
+
+            <!--Bluetooth API-->
+            <dependency>
+                <groupId>io.ultreia</groupId>
+                <artifactId>bluecove</artifactId>
+                <version>${bluecove.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <!--Maven compiler plugin and Java compile version-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.source.compiler.version}</source>
+                    <target>${java.source.compiler.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
