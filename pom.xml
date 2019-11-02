@@ -4,29 +4,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>LearnByExample</artifactId>
-        <groupId>com.learn.java</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-
-    <artifactId>SampleProjects</artifactId>
+    <artifactId>SampleProject</artifactId>
+    <groupId>com.learn.java</groupId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <name>${project.base.name}-Parent</name>
 
     <modules>
         <module>EmailSms</module>
         <module>PdfWriter</module>
         <module>TwitterApi</module>
         <module>Bluetooth</module>
+        <module>SpringBoot</module>
+        <module>HSM</module>
+        <module>Hibernate</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.compiler.version>1.8</java.source.compiler.version>
         <java.target.compiler.version>${java.source.compiler.version}</java.target.compiler.version>
+        <project.base.name>Sample project</project.base.name>
+
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
-
         <mail.version>1.4.5</mail.version>
         <smtp.version>1.5.2</smtp.version>
         <javaee.version>6.0</javaee.version>
@@ -34,7 +36,21 @@
         <unrest.version>1.4.9</unrest.version>
         <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
         <bluecove.version>2.1.1</bluecove.version>
+        <iaik.pkcs11.version>1.5</iaik.pkcs11.version>
+
+        <mysql.version>5.1.6</mysql.version>
+        <hsqldb.version>1.8.0.10</hsqldb.version>
+        <h2.database.version>1.4.199</h2.database.version>
+        <hibernate.version>4.3.2.Final</hibernate.version>
+        <ehcache.version>2.10.3</ehcache.version>
+        <ehcache.core.version>2.6.11</ehcache.core.version>
     </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+    </parent>
 
     <dependencyManagement>
         <dependencies>
@@ -98,7 +114,6 @@
 
         </dependencies>
     </dependencyManagement>
-
 
     <build>
         <plugins>
