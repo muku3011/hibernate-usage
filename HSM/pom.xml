@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>SampleProject</artifactId>
+        <groupId>com.learn.java</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>HSM</artifactId>
+    <name>${project.base.name}-HSM</name>
+    <description>Project to demonstrate HSM working</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>iaik.pkcs.pkcs11</groupId>
+            <artifactId>wrapper</artifactId>
+            <version>${iaik.pkcs11.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/jar/iaikPkcs11Wrapper.jar</systemPath>
+        </dependency>
+
+    </dependencies>
+
+</project>

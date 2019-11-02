@@ -1,0 +1,3 @@
+Same as one-to-many, one to many also needs many to one relation ship to avoid on extra table creation.
+
+Check one-to-many example.

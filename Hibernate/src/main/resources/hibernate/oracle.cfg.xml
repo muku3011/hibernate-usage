@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Register JDBC Driver -->
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <!-- Define connection URL-->
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XA</property>
+        <!-- Define username-->
+        <property name="hibernate.connection.username">dummyUser</property>
+        <!-- Define Password-->
+        <property name="hibernate.connection.password">dummyPAssword</property>
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">5</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="format_sql">false</property>
+
+        <!--Define Path of all the Entities, Example -->
+
+        <!-- Mapping resource in case of annotations are used-->
+        <!-- <mapping class="com.topicscs.hibernate.sample_project_project.Student"/> -->
+
+        <!-- Mapping resource in case of XML files are used not annotations-->
+        <!-- <mapping resource="employee.hbm.xml"/>-->
+
+        <!-- Defined mapping fine in Java Configuration file itself-->
+
+        <!-- Hibernate second level cache implementation -->
+
+        <!--In addition to configuring the second-level cache provider setting,
+        you will need to turn on the second-level cache (by default it is configured to off - ‘false’ - by Hibernate).
+        This is done by setting the following property in your hibernate config:-->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+
+        <!--You may also want to turn on the Hibernate query cache.
+        This is done by setting the following property in your hibernate config:-->
+        <property name="hibernate.cache.use_query_cache">true</property>
+
+        <!-- Second level cache provider
+        For Hibernate 4
+        use org.hibernate.cache.ehcache.EhCacheRegionFactory instead of net.sf.ehcache.hibernate.EhCacheRegionFactory and
+        org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory instead of net.sf.ehcache.hibernate.SingletonEhCacheReg
+        -->
+        <!--<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>-->
+        <property name="hibernate.cache.region.factory_class">
+            org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+        </property>
+
+    </session-factory>
+</hibernate-configuration>
