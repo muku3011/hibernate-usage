@@ -12,11 +12,8 @@
     <name>${project.base.name}-Parent</name>
 
     <modules>
-        <module>EmailSms</module>
-        <module>PdfWriter</module>
         <module>TwitterApi</module>
         <module>Bluetooth</module>
-        <module>SpringBoot</module>
         <module>HSM</module>
         <module>Hibernate</module>
     </modules>
