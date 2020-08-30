@@ -4,37 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>SampleProject</artifactId>
-    <groupId>com.learn.java</groupId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <name>${project.base.name}-Parent</name>
-
-    <modules>
-        <module>TwitterApi</module>
-        <module>Bluetooth</module>
-        <module>HSM</module>
-        <module>Hibernate</module>
-    </modules>
+    <artifactId>hibernate-usage</artifactId>
+    <groupId>com.hibernate.usage</groupId>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.compiler.version>1.8</java.source.compiler.version>
         <java.target.compiler.version>${java.source.compiler.version}</java.target.compiler.version>
-        <project.base.name>Sample project</project.base.name>
-
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-        <junit.jupiter.version>5.4.2</junit.jupiter.version>
-        <mail.version>1.4.5</mail.version>
-        <smtp.version>1.5.2</smtp.version>
-        <javaee.version>6.0</javaee.version>
-        <pdfbox.version>[2.0.15,)</pdfbox.version>
-        <unrest.version>1.4.9</unrest.version>
-        <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
-        <bluecove.version>2.1.1</bluecove.version>
-        <iaik.pkcs11.version>1.5</iaik.pkcs11.version>
 
+        <junit.jupiter.version>5.4.2</junit.jupiter.version>
+        <javaee.version>6.0</javaee.version>
+        <unrest.version>1.4.9</unrest.version>
         <mysql.version>5.1.6</mysql.version>
         <hsqldb.version>1.8.0.10</hsqldb.version>
         <h2.database.version>1.4.199</h2.database.version>
@@ -43,74 +25,61 @@
         <ehcache.core.version>2.6.11</ehcache.core.version>
     </properties>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
-    </parent>
+    <dependencies>
+        <!--Junit dependency, only required for test that's why scope is test-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-    <dependencyManagement>
-        <dependencies>
-            <!--Junit dependency, only required for test that's why scope is test-->
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>${junit.jupiter.version}</version>
-                <scope>test</scope>
-            </dependency>
+        <!--In memory database-->
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>${hsqldb.version}</version>
+        </dependency>
 
-            <!--Java X mailing API-->
-            <dependency>
-                <groupId>com.sun.mail</groupId>
-                <artifactId>javax.mail</artifactId>
-                <version>${mail.version}</version>
-            </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.database.version}</version>
+        </dependency>
 
-            <!--Mailing protocol SMTP protocol-->
-            <dependency>
-                <groupId>com.sun.mail</groupId>
-                <artifactId>smtp</artifactId>
-                <version>${smtp.version}</version>
-            </dependency>
+        <!--MySql jdbc API-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
 
-            <!--PDF handling API-->
-            <dependency>
-                <groupId>org.apache.pdfbox</groupId>
-                <artifactId>pdfbox</artifactId>
-                <version>${pdfbox.version}</version>
-            </dependency>
+        <!--Hibernate libraries-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
-            <!--Lightweight HTTP libraries-->
-            <dependency>
-                <groupId>com.mashape.unirest</groupId>
-                <artifactId>unirest-java</artifactId>
-                <version>${unrest.version}</version>
-            </dependency>
+        <!--Hibernate second level cache-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
-            <!--javax API-->
-            <dependency>
-                <groupId>javax</groupId>
-                <artifactId>javaee-api</artifactId>
-                <version>${javaee.version}</version>
-                <scope>provided</scope>
-            </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
 
-            <!--Twitter API for Java-->
-            <dependency>
-                <groupId>org.twitter4j</groupId>
-                <artifactId>twitter4j-stream</artifactId>
-                <version>${twitter4j-stream.version}</version>
-            </dependency>
-
-            <!--Bluetooth API-->
-            <dependency>
-                <groupId>io.ultreia</groupId>
-                <artifactId>bluecove</artifactId>
-                <version>${bluecove.version}</version>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${ehcache.core.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

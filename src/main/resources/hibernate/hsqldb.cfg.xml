@@ -11,7 +11,7 @@
         <property name="hibernate.connection.username">sa</property>
         <!--No need to include below property as password is empty-->
         <!--<property name="hibernate.connection.password"></property>-->
-        <property name="hibernate.connection.url">jdbc:hsqldb:mem:howtodoinjava</property>
+        <property name="hibernate.connection.url">jdbc:hsqldb:mem:mem-database</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
 
         <!-- Hibernate second level cache implementation -->
